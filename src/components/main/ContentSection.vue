@@ -9,9 +9,6 @@
 		</article>
 
 		<slot></slot>
-
-		<button @click="emit('prevClicked')"><slot name="prevButtonText"></slot></button>
-		<button @click="emit('nextClicked')"><slot name="nextButtonText"></slot></button>
 	</section>
 </template>
 
@@ -21,12 +18,4 @@ const props = defineProps({
 	articleCount: Number
 });
 
-const emit = defineEmits(['prevClicked', 'nextClicked']);
-
 </script>
-
-<style lang="scss">
-
-
-
-</style>
