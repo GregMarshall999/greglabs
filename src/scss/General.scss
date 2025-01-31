@@ -1,0 +1,100 @@
+// Modern color palette
+$primary: #2d3436;
+$secondary: #0984e3;
+$accent: #00b894;
+$text-primary: #dfe6e9;
+$text-secondary: #b2bec3;
+$background-dark: #1e272e;
+$background-light: #2d3436;
+$gradient-start: #6c5ce7;
+$gradient-end: #a363d9;
+
+// Typography
+$font-family: 'Inter', 'Helvetica Neue', sans-serif;
+$font-size-base: 16px;
+$line-height: 1.6;
+
+// Mixins
+@mixin glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+@mixin section-padding {
+    padding: 2rem;
+    margin: 1rem 0;
+}
+
+@mixin theme() {
+    height: 100%;
+
+    body {
+        background: $background-dark;
+        color: $text-primary;
+        font-family: $font-family;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-size: $font-size-base;
+        line-height: $line-height;
+
+        #app {
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        
+            .page {
+                @include glass-effect;
+                min-height: calc(100vh - 4rem);
+                animation: fadeIn 0.5s ease-in-out;
+
+                h1 {
+                    background: linear-gradient(135deg, $gradient-start, $gradient-end);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-size: 2.5rem;
+                    margin-bottom: 2rem;
+                }
+
+                h2 {
+                    color: $secondary;
+                    font-size: 1.8rem;
+                    margin: 1.5rem 0;
+                }
+
+                p {
+                    color: $text-secondary;
+                    margin-bottom: 1rem;
+                }
+
+                section {
+                    @include section-padding;
+                }
+
+                a {
+                    color: $accent;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: lighten($accent, 10%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
