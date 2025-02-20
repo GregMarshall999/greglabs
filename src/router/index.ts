@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import mainRoutes from "./mainRoutes";
-import cryptoRoutes from "./cryptoRoutes";
+import taskingRoutes from "./taskingRoutes";
 
-const routes = [...mainRoutes, ...cryptoRoutes];
+const routes = [...mainRoutes, ...taskingRoutes];
 
 const router = createRouter({
     history: createWebHistory(),
